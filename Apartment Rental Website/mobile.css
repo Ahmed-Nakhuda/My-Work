@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@media only screen and (min-width:599px) {
+	
+	h1, #floorplan
+	{
+		display:none; 
+	}
+	
+    nav ul
+	{
+		display:block; 
+		flex-direction: column; 
+		width:100%; 
+	} 
+	
+	li a 
+	{
+		display:block;
+	}
+}
+	   
