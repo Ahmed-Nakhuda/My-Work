@@ -1,0 +1,39 @@
+<!-- SA001: I Ahmed Nakhuda, 000878456 certify that this material is 
+ my original work. No other person's work has been used without due 
+ acknowledgement. I have not made my work available to anyone else. 
+ 
+  Author: Ahmed Nakhuda, 000878456
+  Date: March 10, 2023 
+  Assignment 4, SVG Game, HTML 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Heads or Tails</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="css4.css" rel="stylesheet">
+	<script src="javascript4.js"></script>
+</head>
+
+<body>
+	<h1>Heads or Tails?</h1>
+	<h5 id="guessLabel"><label for="coin-guess">Enter Heads or Tails:</label>
+	<input type="text" id="guess">
+	<button type="button" class="btn btn-success" id="flipBtn">Flip a Coin</button>
+	<button type="button" class="btn btn-light" id="resetBtn">Reset Game</button></h5>
+	<h5 id="scoreCounter"><p>Your Score: <span id="score">0</span></h5>
+	<h5 id="guessesRemaining">Guesses remaining: <span id="guesses">10</span></h5>
+	<svg id="coinCanvas" width="400" height="360"></svg>
+	<div class="coin-container">
+	 <h5 id="heads">#Heads: <span id="headCount">0</span></h5>
+	 <h5 id="tails">#Tails: <span id="tailCount">0</span></h5>
+	 <h5 id="color">Heads=Yellow & Tails=Orange 
+	</div> 
+	
+	<footer>
+   <h5>&copy; 2023, Ahmed Nakhuda, Mohawk College</h5>
+  </footer> 
+ </body>
+</html>

@@ -1,0 +1,118 @@
+/* SA001: I Ahmed Nakhuda, 000878456 certify that this material is 
+ my original work. No other person's work has been used without due 
+ acknowledgement. I have not made my work available to anyone else. --> 
+ 
+  Author: Ahmed Nakhuda, 000878456
+  Date: March 10 2023 
+  Assignment 4, SVG Game, CSS 
+*/
+
+/* Body */ 
+body
+{
+	padding:0px; 
+	margin:0px; 
+	font-family:Tahoma; 
+	background:#219ebc; 
+	color:white; 
+}
+
+
+/* Header */ 
+h1 
+{
+	text-align:center; 
+	margin-top:1%;
+}
+
+/* SVG */ 
+svg
+{
+	display:none; 
+	margin-left:38%; 
+	margin-top:0%; 
+	background:white; 
+} 
+
+
+/* Main */ 
+#guessLabel
+{
+	margin-left:28%; 
+	margin-top:2%; 
+} 
+
+#guess
+{
+	margin-top:2%; 
+} 
+
+#scoreCounter
+{
+	margin-left:46%; 
+} 
+
+#guessesRemaining
+{
+	margin-left:43%; 
+}
+
+.coins {
+  display: flex;
+  align-items: center;
+}
+
+#heads, #tails {
+  display: inline-block;
+  margin-top:1%; 
+}
+
+#heads
+{
+	margin-left:43%;
+}
+
+#tails 
+{
+	margin-left:2%; 
+}
+
+#color
+{
+	margin-left:42%; 
+	margin-top:1%; 
+}
+
+
+/* Animation */ 
+.flip 
+{
+  animation-name: flip;
+  animation-duration: 0.35s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* Footer */ 
+footer
+{
+    bottom: 0;
+	position:absolute; 
+    width: 100%;
+	text-align:center; 
+	color:black; 
+	padding:5px; 
+	background:white; 
+} 
