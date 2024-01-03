@@ -1,0 +1,7 @@
+C:\Users\anakh\source\repos\Lab2A\Lab2A\bin\Debug\Lab2A.exe.config
+C:\Users\anakh\source\repos\Lab2A\Lab2A\bin\Debug\Lab2A.exe
+C:\Users\anakh\source\repos\Lab2A\Lab2A\bin\Debug\Lab2A.pdb
+C:\Users\anakh\source\repos\Lab2A\Lab2A\obj\Debug\Lab2A.csproj.AssemblyReference.cache
+C:\Users\anakh\source\repos\Lab2A\Lab2A\obj\Debug\Lab2A.csproj.CoreCompileInputs.cache
+C:\Users\anakh\source\repos\Lab2A\Lab2A\obj\Debug\Lab2A.exe
+C:\Users\anakh\source\repos\Lab2A\Lab2A\obj\Debug\Lab2A.pdb
