@@ -1,0 +1,86 @@
+/* SA001: I Ahmed Nakhuda, 000878456 certify that this material is 
+ my original work. No other person's work has been used without due 
+ acknowledgement. I have not made my work available to anyone else. 
+ 
+  Author: Ahmed Nakhuda, 000878456
+  Date: Wednesday April 5, 2023 
+  Assignment 5, AJAX and fetch request, CSS  
+*/
+
+/* Body */ 
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Table */ 
+
+#tableContainer {
+    margin-bottom: 5px;
+}
+table,th,td {
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+}
+
+table {
+    margin: 0 auto;
+    margin-bottom: 3px;
+}
+
+th {
+    text-align: center;
+    background-color: #4662f0;
+}
+
+th,td {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Button */ 
+button {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.input {
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+/* Images */ 
+#imageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin-left:10%; 
+    margin-top:2%;
+    margin-bottom:2%; 
+}
+
+img {
+    margin-left:5px; 
+}
+
+#imageContainer > p {
+    margin-left:5px; 
+}
+
+#imageCopyright, #tableCopyright{
+    text-align:center; 
+    font-style:italic; 
+}
+
+
+
+
