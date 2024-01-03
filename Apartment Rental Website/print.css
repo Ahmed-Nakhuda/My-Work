@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+@page {
+	size: 8.5in 11in;
+	margin: 1in;
+}
+
+
+body {
+	color: black;
+	background: none;
+}
+
+
+header{
+	display: none;
+}
+
+
+nav ul li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+
+nav {
+	display: flex;
+	justify-content: center;
+	margin: 20px;
+}
+
+
+#welcome>audio{
+	display: none;
+}
+
+
+#gallery:nth-of-type(n+1) {
+	page-break-before: always;
+}
+
+main>#survey{
+	display: none;
+}

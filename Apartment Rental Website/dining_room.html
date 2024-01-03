@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<!--
+      Author: Ahmed Nakhuda
+      Date: December 11 2022
+	  Filename: dining_room.html
+    -->
+
+	<link href="apartment_layout.css" rel="stylesheet">
+	<title>Sandy and Leslie's Apartment</title>
+	<style>
+		footer {
+			text-align: left;
+			padding: 5px;
+		}
+
+		footer>p {
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Sandy and Leslie's Apartment</h1>
+
+	<div id="floorplan">
+		<img src="images/apartmentfloorplan.jpg" usemap="#image-map" alt="dining room">
+
+		<map name="image-map">
+			<area shape="rect" href="bedroom.html" coords="189,265,41,112" title="bedroom" alt="bedroom">
+			<area shape="rect" href="living_room.html" coords="196,281,334,113" title="living room" alt="living room">
+			<area shape="rect" href="kitchen.html" coords="182,388,291,285" title="kitchen" alt="kitchen">
+			<area shape="circle" href="dining_room.html" coords="341,340,44" title="dinging room" alt="dining room">
+			<area shape="poly" href="bedroom.html" coords="387,107,394,234,496,238,501,310,581,314,554,102,554,102"
+				title="bedroom2" alt="bedroom">
+		</map>
+	</div>
+
+	<nav>
+		<ul>
+			<li><a href="apartment.html">Apartment |</a></li>
+			<li><a href="bedroom.html">Bedroom 1 |</a></li>
+			<li><a href="bedroom.html">Bedroom 2 |</a></li>
+			<li><a href="dining_room.html">Dining Room |</a></li>
+			<li><a href="kitchen.html">Kitchen |</a></li>
+			<li><a href="living_room.html">Living Room</a></li>
+		</ul>
+	</nav>
+
+	<div class="heading">
+		<h1>Dining Room</h1>
+	</div>
+
+	<div class="lg_image">
+		<img src="images/diningroom_lg.jpg" alt="bedroom">
+	</div>
+
+	<div class="heading">
+		<h1>Apartment Services</h1>
+	</div>
+
+	<div class="table">
+		<table>
+			<colgroup>
+				<col class="left_column">
+				<col class="right_column">
+			</colgroup>
+
+			<tr>
+				<th>Services</th>
+				<th>Day/Hours</th>
+			</tr>
+
+			<tr>
+				<td>Gym</td>
+				<td rowspan="2">
+					&nbsp;<br>
+					Monday-Friday 6am-10pm<br>
+					Saturday 8am - 8pm <br>
+					Sunday 8am - 5pm <br>
+					&nbsp;
+				</td>
+			</tr>
+
+			<tr>
+				<td>Pool</td>
+			</tr>
+
+			<tr>
+				<td>Laundry</td>
+				<td>24/7</td>
+			</tr>
+
+			<tr id="allow">
+				<td colspan="2">Please do not allow people you do not know to use these facilities.</td>
+			</tr>
+		</table>
+	</div>
+
+	<footer>
+		<p>For more information contact:
+			<a href="mailto:sandyandleslie@example.com">SandyAndLeslie@example.com</a> or <a
+				href="tel:9055551234">(905)-555-1234</a>
+		<p>&copy; Sandy and Leslie 2022 </p>
+	</footer>
+
+</body>
+
+</html>
