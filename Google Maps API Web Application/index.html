@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- 
+    "StAuth10244: I Ahmed Nakhuda, 000878456 certify that this material is my original work. 
+    No other person's work has been used without due acknowledgement. 
+    I have not made my work available to anyone else."
+-->
+
+<html>
 
 <head>
     <title>Niagara Falls Tourist Map</title>
@@ -88,7 +93,9 @@
     <!-- Add your own Google Maps API key after key= in the script below -->
 
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+        </script>
     <script src="places.js"></script>
 
     <script>
@@ -252,9 +259,6 @@
 
             // put the marker onto the map (it will not appear otherwise)
             user_location.setMap(map);
-
-            // pan the map to the user's location
-            map.panTo(user_location.getPosition());
         }
 
         // call showPositionOnMap after finding the user's current location
