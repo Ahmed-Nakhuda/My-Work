@@ -1,0 +1,368 @@
+<html>
+
+<head>
+    <title>Niagara Falls Tourist Map</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <style>
+        #map {
+            height: 90%;
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        body {
+            padding-bottom: 20px;
+        }
+
+        button {
+            margin-bottom: 5px;
+        }
+
+        #directionButton {
+            margin-top: 10px;
+        }
+
+        #codeAddress {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar bg-primary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Niagara Falls Tourist Map</span>
+        </div>
+    </nav>
+
+    <div id="map"></div>
+
+    <div id="container" class="container">
+        <button id="museumButton" type="button" class="btn btn-primary">Museums</button>
+        <button id="attractionButton" type="button" class="btn btn-primary">Attractions</button>
+        <button id="outdoorRecreationButton" type="button" class="btn btn-primary">Outdoor Recreation</button>
+        <button id="hotelButton" type="button" class="btn btn-primary">Hotels</button>
+        <button id="allButton" type="button" class="btn btn-primary">Show All</button>
+        <button id="findYourLocationButton" type="button" class="btn btn-primary">Find Your Location</button>
+        <p></p>
+
+        <div class="input-group mb-3">
+            <input id="address" type="text" class="form-control" aria-describedby="inputGroup-sizing-default"
+                placeholder="Enter your location here">
+        </div>
+        <button id="markYourLocationButton" type="button" class="btn btn-primary">Mark Your Location</button>
+        <br>
+
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect">
+                <option value="Niagara SkyWheel">Niagara SkyWheel</option>
+                <option value="Great Canadian Midway Arcade">Great Canadian Midway Arcade</option>
+                <option value="Dinosaur Adventure Golf">Dinosaur Adventure Golf</option>
+                <option value="Skylon Tower">Skylon Tower</option>
+                <option value="Niagara Helicopters">Niagara Helicopters</option>
+                <option value="St. Cathrines Museum">St. Cathrines Museum</option>
+                <option value="Niagara Falls History Museum">Niagara Falls History Museum</option>
+                <option value="Niagara Military Museum">Niagara Military Museum</option>
+                <option value="Niagara Park Botanical Gardens">Niagara Park Botanical Gardens</option>
+                <option value="Centennial Lilac Garden">Centennial Lilac Garden</option>
+                <option value="Dufferin Islands">Dufferin Islands</option>
+                <option value="Sheraton Fallsview Hotel">Sheraton Fallsview Hotel</option>
+                <option value="Redwood Bed & Breakfast">Redwood Bed & Breakfast</option>
+                <option value="Embassy Suites by Hilton Niagara Falls Fallsview"> Embassy Suites by Hilton Niagara Falls
+                    Fallsview</option>
+            </select>
+        </div>
+        <button id="directionButton" type="button" class="btn btn-primary">Get Directions</button>
+    </div>
+
+
+    <!-- Add your own Google Maps API key after key= in the script below -->
+
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+    <script src="places.js"></script>
+
+    <script>
+
+        var map;
+        var markers = [];
+
+        function initMap() {
+
+            // services used to provide directions
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer();
+
+            // geocoder service object
+            geocoder = new google.maps.Geocoder();
+
+            // create the infowindow... we only create ONE infowindow and move it 
+            // around and set its content when a marker is clicked as need be.
+            infowindow = new google.maps.InfoWindow();
+
+
+            // create a Google Map centered on Niagara Falls, Ontario 
+            map = new google.maps.Map(document.getElementById("map"),
+                {
+                    center: { lat: 43.0896, lng: -79.0849 },
+                    zoom: 12,
+                });
+
+            // have the directions renderer work with this map
+            directionsRenderer.setMap(map);
+
+
+            /**
+             * Function to get directions from your current location
+             * */
+            function getDirections(position) {
+                // get the destination from the dropdown menu
+                let destination = document.getElementById("floatingSelect").value;
+
+                // iterate through all the places
+                for (let i = 0; i < places.length; i++) {
+
+                    // if the name matches the dropdown menu selection get the latitude and longitude of that destination
+                    if (places[i].NAME == destination) {
+                        const destinationLattitude = places[i].LATITUDE;
+                        const destinationLongitude = places[i].LONGITUDE;
+
+
+                        const request = {
+                            // get the users current location 
+                            origin: {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            },
+
+                            // set the lattitude and longitude of the destination 
+                            destination: {
+                                lat: destinationLattitude,
+                                lng: destinationLongitude
+                            },
+                            travelMode: 'DRIVING'
+                        };
+
+                        // show the route 
+                        directionsService.route(request, function (result, status) {
+                            if (status == 'OK') {
+                                directionsRenderer.setDirections(result);
+                            }
+                        });
+                    }
+                }
+            }
+
+            // call getDirections after finding the user's current location
+            document.getElementById("directionButton").onclick = function () {
+                navigator.geolocation.getCurrentPosition(getDirections);
+            };
+
+
+            /**
+             * Shows the name and the address of the marker in the info window 
+             * */
+            function contentString(marker) {
+
+                const name = document.createElement("h6");
+                name.innerText = marker.NAME;
+
+                const category = document.createElement("p");
+                category.innerText = marker.ADDRESS;
+
+                const content = document.createElement("div");
+                content.appendChild(name);
+                content.appendChild(category);
+
+                return content;
+            }
+
+
+            // when the marker is clicked, this function will run to open the infowindow
+            marker_clicked = function () {
+                infowindow.close(); // Close previously opened infowindow
+                infowindow.setContent(contentString(this)); // show the content specified by the content string
+                infowindow.open(map, this);
+            }
+
+            // put markers on the map based on the category from places.js  
+            for (i = 0; i < places.length; i++) {
+                // set the icon based on the category
+                if (places[i].CATEGORY == "Attraction")
+                    new_icon = "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png";
+                else if (places[i].CATEGORY == "Museum")
+                    new_icon = "http://maps.google.com/mapfiles/kml/paddle/pink-blank.png";
+                else if (places[i].CATEGORY == "Outdoor Recreation")
+                    new_icon = "http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png";
+                else if (places[i].CATEGORY == "Hotel")
+                    new_icon = "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png";
+
+                // create a new marker
+                new_marker = new google.maps.Marker({
+                    position: {
+                        lat: places[i].LATITUDE,
+                        lng: places[i].LONGITUDE
+                    },
+                    title: places[i].NAME,
+                    address: places[i].ADDRESS,
+
+                    icon: new_icon
+                });
+
+                // put the marker onto the map (it will not appear otherwise)
+                new_marker.setMap(map);
+
+                // store the name of the places as a property of the marker object
+                new_marker.NAME = places[i].NAME;
+                new_marker.CATEGORY = places[i].CATEGORY;
+                new_marker.ADDRESS = places[i].ADDRESS;
+
+                // have the info window open when the marker is clicked
+                new_marker.addListener('click', marker_clicked);
+
+                // add the markers 
+                markers.push(new_marker);
+            }
+        }
+
+
+        /**
+         * Function to create a new marker where your location is
+         * */
+        function findYourLocation(position) {
+            // create a marker centered at the user's location
+            user_location = new google.maps.Marker({
+                position: {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                },
+                title: "Your Location",  // will appear when we hover over the marker
+                // custom marker
+                icon: "http://maps.google.com/mapfiles/kml/shapes/poi.png"
+            });
+
+            // put the marker onto the map (it will not appear otherwise)
+            user_location.setMap(map);
+
+            // pan the map to the user's location
+            map.panTo(user_location.getPosition());
+        }
+
+        // call showPositionOnMap after finding the user's current location
+        document.getElementById("findYourLocationButton").onclick = function () {
+            navigator.geolocation.getCurrentPosition(findYourLocation);
+        }
+
+
+        /**
+         * Function to put a marker on the map, location specified by the address the user typed in
+         * */
+        function enterYourLocation() {
+            var address = document.getElementById('address').value;
+
+            // perform geocoding for the address entered into the input textbox, a 
+            // callback function is given the latitude and longitude as an an 
+            // argument as part of a results object
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == 'OK') {
+
+                    // center the map at the location
+                    map.setCenter(results[0].geometry.location);
+
+                    // put a marker on the map at the given position
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        icon: "http://maps.google.com/mapfiles/kml/shapes/poi.png"
+                    });
+
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        // call the enterYourLocation function when the markYourLocationButton button is clicked
+        document.getElementById("markYourLocationButton").onclick = enterYourLocation;
+
+
+        /**
+        * Function to filter Museums
+        **/
+        function filterMuseums() {
+            for (i = 0; i < markers.length; i++) {
+                if (markers[i].CATEGORY == "Museum")
+                    markers[i].setMap(map);
+                else
+                    markers[i].setMap(null);
+            }
+        }
+
+        document.getElementById("museumButton").onclick = filterMuseums;
+
+
+        /**
+         * Function to filter Attractions
+         **/
+        function filterAttractions() {
+            for (i = 0; i < markers.length; i++) {
+                if (markers[i].CATEGORY == "Attraction")
+                    markers[i].setMap(map);
+                else
+                    markers[i].setMap(null);
+            }
+        }
+
+        document.getElementById("attractionButton").onclick = filterAttractions;
+
+
+        /**
+        * Function to filter Outdoor Recreation 
+        **/
+        function filterOutdoorRecreation() {
+            for (i = 0; i < markers.length; i++) {
+                if (markers[i].CATEGORY == "Outdoor Recreation")
+                    markers[i].setMap(map);
+                else
+                    markers[i].setMap(null);
+            }
+        }
+
+        document.getElementById("outdoorRecreationButton").onclick = filterOutdoorRecreation;
+
+
+        /**
+        * Function to filter Hotels
+        **/
+        function filterHotels() {
+            for (i = 0; i < markers.length; i++) {
+                if (markers[i].CATEGORY == "Hotel")
+                    markers[i].setMap(map);
+                else
+                    markers[i].setMap(null);
+            }
+        }
+
+        document.getElementById("hotelButton").onclick = filterHotels;
+
+
+        /**
+         * Function to show all markers
+         **/
+        function showAll() {
+            for (i = 0; i < markers.length; i++) markers[i].setMap(map);
+        }
+
+        document.getElementById("allButton").onclick = showAll;
+    </script>
+</body>
+
+</html>
