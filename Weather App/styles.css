@@ -1,0 +1,142 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+
+    background-color: #ffd662ff;
+    padding-bottom: 2%;
+}
+
+
+/** Header **/ 
+
+header {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/** Form **/ 
+
+#formInput {
+    display: flex;
+    margin-top: 1%;
+}
+
+form > label {
+    font-size: 18px;
+}
+
+form>input {
+    margin-top: 0.5%;
+}
+
+#submitButton {
+    background-color: #00539cff;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 4%;
+}
+
+/** Current Weather Info */ 
+
+#currentCondition,
+#currentFeelsLike,
+#currentWindSpeed,
+#currentLow,
+#currentHigh {
+    font-size: 20px;
+}
+
+#cityLabel {
+    margin-top: 1%;
+    margin-right: 2px;
+}
+
+#countryLabel {
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2px;
+}
+
+
+#currentTempResults {
+    background-color: #00539cff;
+    color: white;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+
+#city {
+    font-weight: bold;
+    margin-bottom: 3%;
+    font-size: 50px;
+}
+
+#currentTemp {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+
+#currentTempContainer {
+    display: flex;
+}
+
+#currentIcon {
+    margin-left: 30px;
+    width: 100px;
+    height: 100px;
+}
+
+#currentTempInfoContainer {
+    margin-left: 10%;
+}
+
+#currentHumidity {
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+#currentWindSpeed {
+    margin-left: 10%;
+}
+
+/* Upcoming Forecast */ 
+
+#upcomingForecast {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#upcomingForecast>h2 {
+    margin-top: 2%;
+}
+
+.card-group .card p {
+    font-size: 18px;
+}
+
+#currentIcon,
+#icon,
+#icon2,
+#icon3,
+#icon4,
+#icon5 {
+    background-color: rgb(230, 226, 226);
+    width: 100px;
+    height: 100px
+}

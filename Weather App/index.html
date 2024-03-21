@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js"></script>
+    <title>Weather App</title>
+</head>
+
+<body>
+    <header>
+        <div id="formInput">
+            <form action="">
+
+                <label for="cityInput" id="cityLabel">City:</label>
+                <input type="text" id="cityInput">
+
+                <label for="countryInput" id="countryLabel">Country:</label>
+                <input type="text" id="countryInput">
+
+                <input type="button" type="submit" value="Get Weather" id="submitButton">
+
+            </form>
+        </div>
+
+        <div id="currentTempResults">
+            <h3>Current Weather</h3>
+            <p id="city">City</p>
+            <div id="currentTempContainer">
+                <p id="currentTemp">Temp</p>
+                <img src="sun.png" alt="" id="currentIcon">
+                <div id="currentTempInfoContainer">
+                    <div class="row">
+                        <div class="col">
+                            <p id="currentCondition">conditions</p>
+                        </div>
+                        <div class="col">
+                            <p id="currentHumidity">humidity</p>
+                        </div>
+                        <div class="col">
+                            <p id="currentLow">low</p>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <p id="currentFeelsLike">feels like</p>
+                        </div>
+                        <div class="col">
+                            <p id="currentWindSpeed">wind speed</p>
+                        </div>
+                        <div class="col">
+                            <p id="currentHigh">high</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="hide">
+        <div id="upcomingForecast">
+            <h2>Upcoming Forecast</h2>
+            <div class="card-group">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="" id="icon">
+                    <div class="card-body">
+                        <p id="time">time</p>
+                        <p id="description">condition</p>
+                        <p id="feelsLike">feels like</p>
+                        <p id="temp">temp</p>
+                        <p id="tempMin">low</p>
+                        <p id="tempMax">high</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="" class="card-img-top" alt="" id="icon2">
+                    <div class="card-body">
+                        <p id="time2">time</p>
+                        <p id="description2">condition</p>
+                        <p id="feelsLike2">feels like</p>
+                        <p id="temp2">temp</p>
+                        <p id="tempMin2">low</p>
+                        <p id="tempMax2">high</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="" class="card-img-top" alt="" id="icon3">
+                    <div class="card-body">
+                        <p id="time3">time</p>
+                        <p id="description3">condition</p>
+                        <p id="feelsLike3">feels like</p>
+                        <p id="temp3">temp</p>
+                        <p id="tempMin3">low</p>
+                        <p id="tempMax3">high</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="" class="card-img-top" alt="" id="icon4">
+                    <div class="card-body">
+                        <p id="time4">time</p>
+                        <p id="description4">condition</p>
+                        <p id="feelsLike4">feels like</p>
+                        <p id="temp4">temp</p>
+                        <p id="tempMin4">low</p>
+                        <p id="tempMax4">high</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="" class="card-img-top" alt="" id="icon5">
+                    <div class="card-body">
+                        <p id="time5">time</p>
+                        <p id="description5">condition</p>
+                        <p id="feelsLike5">feels like</p>
+                        <p id="temp5">temp</p>
+                        <p id="tempMin5">low</p>
+                        <p id="tempMax5">high</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
