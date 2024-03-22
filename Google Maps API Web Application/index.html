@@ -188,7 +188,7 @@
 
             // when the marker is clicked, this function will run to open the infowindow
             marker_clicked = function () {
-                infowindow.close(); // Close previously opened infowindow
+                infowindow.close(); // close previously opened infowindow
                 infowindow.setContent(contentString(this)); // show the content specified by the content string
                 infowindow.open(map, this);
             }
@@ -256,7 +256,7 @@
             map.panTo(user_location.getPosition());
         }
 
-        // call showPositionOnMap after finding the user's current location
+        // call findYourLocation after finding the user's current location
         document.getElementById("findYourLocationButton").onclick = function () {
             navigator.geolocation.getCurrentPosition(findYourLocation);
         }
@@ -268,9 +268,8 @@
         function enterYourLocation() {
             var address = document.getElementById('address').value;
 
-            // perform geocoding for the address entered into the input textbox, a 
-            // callback function is given the latitude and longitude as an an 
-            // argument as part of a results object
+            // perform geocoding for the address entered into the input textbox, a callback function is given
+            // the latitude and longitude as an an argument as part of a results object
             geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status == 'OK') {
 
@@ -289,8 +288,7 @@
                 }
             });
         }
-
-        // call the enterYourLocation function when the markYourLocationButton button is clicked
+        
         document.getElementById("markYourLocationButton").onclick = enterYourLocation;
 
 
