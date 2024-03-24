@@ -1,3 +1,5 @@
+/* I did not write this */ 
+
 // sqlite3 package used to create an sqlite database
 const sqlite3 = require("sqlite3").verbose();
 
